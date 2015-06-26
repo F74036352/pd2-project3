@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/">
+        <file>picture/Blue_h.png</file>
+        <file>picture/Blue_o.png</file>
+        <file>picture/Blue_v.png</file>
+        <file>picture/Blue_w.png</file>
+        <file>picture/Bomb.png</file>
+        <file>picture/Green_h.png</file>
+        <file>picture/Green_o.png</file>
+        <file>picture/Green_v.png</file>
+        <file>picture/Green_w.png</file>
+        <file>picture/Orange_h.png</file>
+        <file>picture/Orange_o.png</file>
+        <file>picture/Orange_v.png</file>
+        <file>picture/Orange_w.png</file>
+        <file>picture/Purple_h.png</file>
+        <file>picture/Purple_o.png</file>
+        <file>picture/Purple_v.png</file>
+        <file>picture/Purple_w.png</file>
+        <file>picture/Red_h.png</file>
+        <file>picture/Red_o.png</file>
+        <file>picture/Red_v.png</file>
+        <file>picture/Red_w.png</file>
+        <file>picture/Yellow_h.png</file>
+        <file>picture/Yellow_o.png</file>
+        <file>picture/Yellow_v.png</file>
+        <file>picture/Yellow_w.png</file>
+    </qresource>
+</RCC>

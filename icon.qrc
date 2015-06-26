@@ -1,0 +1,38 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/blue.png</file>
+        <file>icon/blue_bomb.png</file>
+        <file>icon/blue_bomb_clicked.png</file>
+        <file>icon/blue_clicked.png</file>
+        <file>icon/blue_horizontal_bomb.png</file>
+        <file>icon/blue_horizontal_bomb_clicked.png</file>
+        <file>icon/blue_vertical_bomb.png</file>
+        <file>icon/blue_vertical_bomb_clicked.png</file>
+        <file>icon/green.png</file>
+        <file>icon/green_bomb.png</file>
+        <file>icon/green_bomb_clicked.png</file>
+        <file>icon/green_clicked.png</file>
+        <file>icon/green_horizontal_bomb.png</file>
+        <file>icon/green_horizontal_bomb_clicked.png</file>
+        <file>icon/green_vertical_bomb.png</file>
+        <file>icon/green_vertical_bomb_clicked.png</file>
+        <file>icon/power_bomb.png</file>
+        <file>icon/power_bomb_clicked.png</file>
+        <file>icon/red.png</file>
+        <file>icon/red_bomb.png</file>
+        <file>icon/red_bomb_clicked.png</file>
+        <file>icon/red_clicked.png</file>
+        <file>icon/red_horizontal_bomb.png</file>
+        <file>icon/red_horizontal_bomb_clicked.png</file>
+        <file>icon/red_vertical_bomb.png</file>
+        <file>icon/red_vertical_bomb_clicked.png</file>
+        <file>icon/yellow.png</file>
+        <file>icon/yellow_bomb.png</file>
+        <file>icon/yellow_bomb_clicked.png</file>
+        <file>icon/yellow_clicked.png</file>
+        <file>icon/yellow_horizontal_bomb.png</file>
+        <file>icon/yellow_horizontal_bomb_clicked.png</file>
+        <file>icon/yellow_vertical_bomb.png</file>
+        <file>icon/yellow_vertical_bomb_clicked.png</file>
+    </qresource>
+</RCC>

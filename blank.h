@@ -14,6 +14,12 @@ public:
     const int row;
     const int column;
     int number;
+    void setButtonPicture();
+    void setRandomNumber();
+public slots://信號
+    void click();
+signals:
+    void Click(int R,int C);
 };
 
 #endif // BLANK_H
