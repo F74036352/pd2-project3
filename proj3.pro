@@ -16,12 +16,18 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     blank.cpp \
     destroy.cpp \
-    star.cpp
+    star.cpp \
+    nineblock.cpp \
+    vertical.cpp \
+    horizontal.cpp
 
 HEADERS  += mainwindow.h \
     blank.h \
     destroy.h \
-    star.h
+    star.h \
+    nineblock.h \
+    vertical.h \
+    horizontal.h
 
 FORMS    += mainwindow.ui
 

@@ -131,6 +131,84 @@ void star::spawn(Blank *a[10][10], Blank *focus, int mode)
             }
         }
         break;
+        /*******************************/
+    case 3://
+        num/=10;
+
+        if(C>=2 &&(num==a[R][C-2]->number||num==a[R][C-2]->number/10)&&(num==a[R][C-1]->number||num==a[R][C-1]->number/10)){
+            a[R][C-2]->number=0;
+            a[R][C-1]->number=0;
+        }
+        if(C<=7 &&(num==a[R][C+1]->number||num==a[R][C+1]->number/10)&&(num==a[R][C+2]->number||num==a[R][C+2]->number/10)){
+            a[R][C+1]->number=0;
+            a[R][C+2]->number=0;
+        }
+        if(a[R-2][C]->number/10!=0)FiveN[0]=a[R-2][C]->number%10;
+        if(a[R-1][C]->number/10!=0)FiveN[1]=a[R-1][C]->number%10;
+        FiveN[2]=a[R][C]->number%10;
+        if(a[R+1][C]->number/10!=0)FiveN[3]=a[R+1][C]->number%10;
+        if(a[R+2][C]->number/10!=0)FiveN[4]=a[R+2][C]->number%10;
+
+        for(int i=0;i<5;i++)
+        {
+            Destroy* d;
+            switch (FiveN[i]) {
+            case 0:
+                a[R-2+i][C]->number=0;
+                break;
+            case 1://若為炸彈，則引爆
+
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            default:
+                break;
+            }
+        }
+        break;
+        /**************************/
+    case 4:
+        num/=10;
+
+        if(R>=2 &&(num==a[R-2][C]->number||num==a[R-2][C]->number/10)&&(num==a[R-1][C]->number||num==a[R-1][C]->number/10)){
+            a[R-2][C]->number=0;
+            a[R-1][C]->number=0;
+        }
+        if(R<=7 &&(num==a[R+1][C]->number||num==a[R+1][C]->number/10)&&(num==a[R+2][C]->number||num==a[R+2][C]->number/10)){
+            a[R+1][C]->number=0;
+            a[R+2][C]->number=0;
+        }
+        if(a[R][C-2]->number/10!=0)FiveN[0]=a[R][C-2]->number%10;
+        if(a[R][C-1]->number/10!=0)FiveN[1]=a[R][C-1]->number%10;
+        FiveN[2]=a[R][C]->number%10;
+        if(a[R][C+1]->number/10!=0)FiveN[3]=a[R][C+1]->number%10;
+        if(a[R][C+2]->number/10!=0)FiveN[4]=a[R][C+2]->number%10;
+
+        for(int i=0;i<5;i++)
+        {
+            Destroy* d;
+            switch (FiveN[i]) {
+            case 0:
+                a[R][C-2+i]->number=0;
+                break;
+            case 1://若為炸彈，則引爆
+
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            default:
+                break;
+            }
+        }
+        break;
     }
 }
 

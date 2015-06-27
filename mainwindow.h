@@ -5,6 +5,9 @@
 #include"blank.h"
 #include "destroy.h"
 #include "star.h"
+#include "vertical.h"
+#include "horizontal.h"
+#include "nineblock.h"
 namespace Ui {
 class MainWindow;
 }
