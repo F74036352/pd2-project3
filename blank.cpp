@@ -47,7 +47,7 @@ void Blank::setButtonPicture(){
         button->setIcon(QIcon(QPixmap(":/picture/Green_h.png")));
         break;
     case 23:
-        button->setIcon(QIcon(QPixmap(":/icon/picture/Green_w.png")));
+        button->setIcon(QIcon(QPixmap(":/picture/Green_w.png")));
         break;
     case 3:
         button->setIcon(QIcon(QPixmap(":/picture/Red_o.png")));

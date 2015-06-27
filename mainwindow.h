@@ -24,6 +24,7 @@ public:
     bool Judge(int row1,int col1,int row2,int col2);
     bool JudgeStar(int R,int C);
     void RenewPicture();
+    bool JudgeL(int R,int C);
 public slots:
     void button_clicked(int R,int C);
 

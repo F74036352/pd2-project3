@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+//#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -24,6 +24,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 void MainWindow::button_clicked(int R, int C){
+   //qDebug()<<b[R][C]->number;
     if(!isClicked){
         setClickedPicture(b[R][C]);
         record_R=R;
@@ -144,6 +145,8 @@ bool MainWindow::Judge(int row1, int col1, int row2, int col2)
 {
     JudgeStar(row1,col1);
     JudgeStar(row2,col2);
+    JudgeL(row1,col1);
+    JudgeL(row2,col2);
     RenewPicture();
 }
 
@@ -173,6 +176,8 @@ bool MainWindow::JudgeStar(int R, int C)
             break;
         }
     }
+    delete destroy;
+    return AnySpawn;
 }
 void MainWindow::RenewPicture(){
     for(int i=0;i<10;i++){
@@ -180,4 +185,35 @@ void MainWindow::RenewPicture(){
             b[i][j]->setButtonPicture();
         }
     }
+}
+
+bool MainWindow::JudgeL(int R, int C)
+{
+    int returnV;
+    bool AnySpawn=false;
+    destroy=new NineBlock;
+    returnV=destroy->condition(b,b[R][C]);
+    if(returnV){
+        switch(returnV){
+        case 1:
+            destroy->spawn(b,b[R][C],1);
+            AnySpawn=true;
+            break;
+        case 2:
+            destroy->spawn(b,b[R][C],2);
+            AnySpawn=true;
+            break;
+        case 3:
+            destroy->spawn(b,b[R][C],3);
+            AnySpawn=true;
+            break;
+        case 4:
+            destroy->spawn(b,b[R][C],4);
+            AnySpawn=true;
+            break;
+        }
+    }
+    delete destroy;
+    return AnySpawn;
+
 }
