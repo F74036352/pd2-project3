@@ -139,3 +139,45 @@ void MainWindow::setClickedPicture(Blank *a){
         a->setButtonPicture();
     }
 }
+
+bool MainWindow::Judge(int row1, int col1, int row2, int col2)
+{
+    JudgeStar(row1,col1);
+    JudgeStar(row2,col2);
+    RenewPicture();
+}
+
+bool MainWindow::JudgeStar(int R, int C)
+{
+    int returnV;
+    bool AnySpawn=false;
+    destroy=new star;
+    returnV=destroy->condition(b,b[R][C]);
+    if(returnV){
+        switch(returnV){
+        case 1:
+            destroy->spawn(b,b[R][C],1);
+            AnySpawn=true;
+            break;
+        case 2:
+            destroy->spawn(b,b[R][C],2);
+            AnySpawn=true;
+            break;
+        case 3:
+            destroy->spawn(b,b[R][C],3);
+            AnySpawn=true;
+            break;
+        case 4:
+            destroy->spawn(b,b[R][C],4);
+            AnySpawn=true;
+            break;
+        }
+    }
+}
+void MainWindow::RenewPicture(){
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++){
+            b[i][j]->setButtonPicture();
+        }
+    }
+}
