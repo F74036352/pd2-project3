@@ -10,12 +10,12 @@ Vertical::~Vertical()
 
 }
 
-int Vertical::condition(Blank *a[][], Blank *focus)
+int Vertical::condition(Blank *a[10][10], Blank *focus)
 {
 
 }
 
-void Vertical::spawn(Blank *a[][], Blank *focus, int mode)
+void Vertical::spawn(Blank *a[10][10], Blank *focus, int mode)
 {
 
 }

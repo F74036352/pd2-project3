@@ -10,12 +10,12 @@ Horizontal::~Horizontal()
 
 }
 
-int Horizontal::condition(Blank *a[][], Blank *focus)
+int Horizontal::condition(Blank *a[10][10], Blank *focus)
 {
 
 }
 
-void Horizontal::spawn(Blank *a[][], Blank *focus, int mode)
+void Horizontal::spawn(Blank *a[10][10], Blank *focus, int mode)
 {
 
 }
