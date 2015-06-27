@@ -1,5 +1,7 @@
 #include "star.h"
-
+#include "horizontal.h"
+#include "vertical.h"
+#include "nineblock.h"
 star::star()
 {
 
@@ -80,15 +82,21 @@ void star::spawn(Blank *a[10][10], Blank *focus, int mode)
                 a[R-2+i][C]->number=0;
                 break;
             case 1://若為炸彈，則引爆
+                d=new Vertical;
+                d->eliminate(a,a[R-2+i][C]);
+                delete d;
 
                 break;
             case 2:
+                d=new Horizontal;
+                d->eliminate(a,a[R-2+i][C]);
+                delete d;
 
                 break;
             case 3:
-
-                break;
-            default:
+                d=new NineBlock;
+                d->eliminate(a,a[R-2+i][C]);
+                delete d;
                 break;
             }
         }
@@ -118,15 +126,19 @@ void star::spawn(Blank *a[10][10], Blank *focus, int mode)
                 a[R][C-2+i]->number=0;
                 break;
             case 1://若為炸彈，則引爆
-
+                d=new Vertical;
+                d->eliminate(a,a[R][C-2+i]);
+                delete d;
                 break;
             case 2:
-
+                d=new Horizontal;
+                d->eliminate(a,a[R][C-2+i]);
+                delete d;
                 break;
             case 3:
-
-                break;
-            default:
+                d=new NineBlock;
+                d->eliminate(a,a[R][C-2+i]);
+                delete d;
                 break;
             }
         }
@@ -157,15 +169,19 @@ void star::spawn(Blank *a[10][10], Blank *focus, int mode)
                 a[R-2+i][C]->number=0;
                 break;
             case 1://若為炸彈，則引爆
-
+                d=new Vertical;
+                d->eliminate(a,a[R-2+i][C]);
+                delete d;
                 break;
             case 2:
-
+                d=new Horizontal;
+                d->eliminate(a,a[R-2+i][C]);
+                delete d;
                 break;
             case 3:
-
-                break;
-            default:
+                d=new NineBlock;
+                d->eliminate(a,a[R-2+i][C]);
+                delete d;
                 break;
             }
         }
@@ -196,15 +212,19 @@ void star::spawn(Blank *a[10][10], Blank *focus, int mode)
                 a[R][C-2+i]->number=0;
                 break;
             case 1://若為炸彈，則引爆
-
+                d=new Vertical;
+                d->eliminate(a,a[R][C-2+i]);
+                delete d;
                 break;
             case 2:
-
+                d=new Horizontal;
+                d->eliminate(a,a[R][C-2+i]);
+                delete d;
                 break;
             case 3:
-
-                break;
-            default:
+                d=new NineBlock;
+                d->eliminate(a,a[R][C-2+i]);
+                delete d;
                 break;
             }
         }

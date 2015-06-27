@@ -211,6 +211,54 @@ bool MainWindow::JudgeL(int R, int C)
             destroy->spawn(b,b[R][C],4);
             AnySpawn=true;
             break;
+        case 5:
+            destroy->spawn(b,b[R][C],5);
+            AnySpawn=true;
+            break;
+        case 6:
+            destroy->spawn(b,b[R][C],6);
+            AnySpawn=true;
+            break;
+        case 7:
+            destroy->spawn(b,b[R][C],7);
+            AnySpawn=true;
+            break;
+        case 8:
+            destroy->spawn(b,b[R][C],8);
+            AnySpawn=true;
+            break;
+        case 9:
+            destroy->spawn(b,b[R][C],1);
+            AnySpawn=true;
+            break;
+        case 10:
+            destroy->spawn(b,b[R][C],2);
+            AnySpawn=true;
+            break;
+        case 11:
+            destroy->spawn(b,b[R][C],3);
+            AnySpawn=true;
+            break;
+        case 12:
+            destroy->spawn(b,b[R][C],4);
+            AnySpawn=true;
+            break;
+        case 13:
+            destroy->spawn(b,b[R][C],5);
+            AnySpawn=true;
+            break;
+        case 14:
+            destroy->spawn(b,b[R][C],6);
+            AnySpawn=true;
+            break;
+        case 15:
+            destroy->spawn(b,b[R][C],7);
+            AnySpawn=true;
+            break;
+        case 16:
+            destroy->spawn(b,b[R][C],8);
+            AnySpawn=true;
+            break;
         }
     }
     delete destroy;

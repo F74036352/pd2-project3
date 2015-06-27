@@ -402,6 +402,7 @@ void NineBlock::spawn(Blank *a[10][10], Blank *focus, int mode)
             }
         break;
         /*******************************************************/
+
     }//switch
 
 }
@@ -601,4 +602,3 @@ void NineBlock::eliminate(Blank *a[10][10], Blank *focus)
 
 
 }
-
