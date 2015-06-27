@@ -14,10 +14,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    blank.cpp
+    blank.cpp \
+    destroy.cpp \
+    star.cpp
 
 HEADERS  += mainwindow.h \
-    blank.h
+    blank.h \
+    destroy.h \
+    star.h
 
 FORMS    += mainwindow.ui
 

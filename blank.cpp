@@ -81,3 +81,10 @@ void Blank::setButtonPicture(){
 
     }
 }
+void Blank::operator + (Blank *a){
+    int tmp_num=a->number;
+    a->number=number;
+    number=tmp_num;
+    setButtonPicture();
+    a->setButtonPicture();
+}

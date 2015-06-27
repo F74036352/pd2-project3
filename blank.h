@@ -16,6 +16,8 @@ public:
     int number;
     void setButtonPicture();
     void setRandomNumber();
+    void operator + (Blank* a);
+
 public slots://信號
     void click();
 signals:
