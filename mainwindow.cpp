@@ -153,6 +153,8 @@ bool MainWindow::Judge(int row1, int col1, int row2, int col2)
     JudgeH(row2,col2);
     JudgeH3(row1,col1);
     JudgeH3(row2,col2);
+    JudgeV3(row1,col1);
+    JudgeV3(row2,col2);
     RenewPicture();
 }
 
@@ -323,6 +325,32 @@ bool MainWindow::JudgeH3(int R, int C)
     int returnV;
     bool AnySpawn=false;
     destroy=new hor3;
+    returnV=destroy->condition(b,b[R][C]);
+    if(returnV){
+        switch(returnV){
+        case 1:
+            destroy->spawn(b,b[R][C],1);
+            AnySpawn=true;
+            break;
+        case 2:
+            destroy->spawn(b,b[R][C],2);
+            AnySpawn=true;
+            break;
+        case 3:
+            destroy->spawn(b,b[R][C],3);
+            AnySpawn=true;
+            break;
+        }
+    }
+    delete destroy;
+    return AnySpawn;
+}
+
+bool MainWindow::JudgeV3(int R, int C)
+{
+    int returnV;
+    bool AnySpawn=false;
+    destroy=new ver3;
     returnV=destroy->condition(b,b[R][C]);
     if(returnV){
         switch(returnV){
