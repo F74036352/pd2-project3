@@ -70,6 +70,26 @@ void Horizontal::spawn(Blank *a[10][10], Blank *focus, int mode)
                 delete d;
                 break;
            }
+            switch(FiveN[1]){
+            case 0:
+                a[R][C]->number=0;
+                break;
+            case 1:
+                d=new Vertical;
+                d->eliminate(a,a[R][C]);
+                delete d;
+                break;
+            case 2:
+                d=new Horizontal;
+                d->eliminate(a,a[R][C]);
+                delete d;
+                break;
+            case 3:
+                d=new NineBlock;
+                d->eliminate(a,a[R][C]);
+                delete d;
+                break;
+           }
                 switch(FiveN[2]){
                 case 0:
                     a[R][C+1]->number=0;
@@ -145,6 +165,26 @@ void Horizontal::spawn(Blank *a[10][10], Blank *focus, int mode)
     }
 
             Destroy *d;
+            switch(FiveN[2]){
+            case 0:
+                a[R][C]->number=0;
+                break;
+            case 1:
+                d=new Vertical;
+                d->eliminate(a,a[R][C]);
+                delete d;
+                break;
+            case 2:
+                d=new Horizontal;
+                d->eliminate(a,a[R][C]);
+                delete d;
+                break;
+            case 3:
+                d=new NineBlock;
+                d->eliminate(a,a[R][C]);
+                delete d;
+                break;
+           }
             switch(FiveN[3]){
             case 0:
                 a[R][C+1]->number=0;

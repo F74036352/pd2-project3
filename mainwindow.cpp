@@ -5,7 +5,7 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
-{
+{   //srand((unsigned)time(NULL));
     ui->setupUi(this);
     this->setMaximumSize(500,520);
     this->setMinimumSize(500,520);
@@ -155,6 +155,9 @@ bool MainWindow::Judge(int row1, int col1, int row2, int col2)
     JudgeH3(row2,col2);
     JudgeV3(row1,col1);
     JudgeV3(row2,col2);
+    fillzero();
+    RenewPicture();
+    fillzero();
     RenewPicture();
 }
 
@@ -370,4 +373,39 @@ bool MainWindow::JudgeV3(int R, int C)
     }
     delete destroy;
     return AnySpawn;
+}
+
+void MainWindow::bornzero()
+{
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++){
+            if(b[i][j]->number==0){
+                b[i][j]->setRandomNumber();
+                b[i][j]->setButtonPicture();
+                if(j>=2 && b[i][j]->number==b[i][j-1]->number && b[i][j]->number==b[i][j-2]->number){
+                 j--;
+                }
+                if(j>=2 && b[i][j]->number==b[i-1][j]->number && b[i][j]->number==b[i-2][j]->number){
+                 j--;
+                }
+            }
+        }
+    }
+}
+
+void MainWindow::fillzero()
+{
+    for(int i=9;i>=0;i--){
+        for(int j=9;j>=0;j--){
+            if(b[i][j]->number==0){
+                for(int k=i;k>=0;k--){
+                    if(b[k][j]->number!=0){
+                        b[i][j]->number=b[k][j]->number;
+                        b[k][j]->number=0;
+                        break;
+                    }
+                }
+            }
+        }
+    }
 }

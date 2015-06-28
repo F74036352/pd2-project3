@@ -47,7 +47,7 @@ void ver3::spawn(Blank *a[10][10], Blank *focus, int mode)
         focus->number=focus->number*10+0;
 
         if(a[R+1][C]->number/10!=0)FiveN[1]=a[R+1][C]->number%10;
-        FiveN[0]=a[R][C]->number;
+        FiveN[0]=a[R][C]->number=0;
         if(a[R+2][C]->number/10!=0)FiveN[2]=a[R+2][C]->number%10;
 
             switch(FiveN[0]){
@@ -116,7 +116,7 @@ void ver3::spawn(Blank *a[10][10], Blank *focus, int mode)
     case 2:
     focus->number=focus->number*10+0;
     if(a[R-1][C]->number/10!=0)FiveN[1]=a[R-1][C]->number%10;
-    FiveN[0]=a[R][C]->number;
+    FiveN[0]=a[R][C]->number=0;
     if(a[R+1][C]->number/10!=0)FiveN[2]=a[R+1][C]->number%10;
 
 
@@ -192,7 +192,7 @@ void ver3::spawn(Blank *a[10][10], Blank *focus, int mode)
     case 3:
     focus->number=focus->number*10+0;
     if(a[R-1][C]->number/10!=0)FiveN[1]=a[R-1][C]->number%10;
-    FiveN[0]=a[R][C]->number;
+    FiveN[0]=a[R][C]->number=0;
     if(a[R-2][C]->number/10!=0)FiveN[2]=a[R-2][C]->number%10;
 
 

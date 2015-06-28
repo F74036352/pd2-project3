@@ -8,6 +8,9 @@
 #include "vertical.h"
 #include "horizontal.h"
 #include "nineblock.h"
+#include <QMainWindow>
+#include <cstdlib>
+#include <ctime>
 namespace Ui {
 class MainWindow;
 }
@@ -29,6 +32,8 @@ public:
     bool JudgeH(int R,int C);
     bool JudgeH3(int R,int C);
     bool JudgeV3(int R,int C);
+    void bornzero();
+    void fillzero();
 public slots:
     void button_clicked(int R,int C);
 
