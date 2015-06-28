@@ -25,6 +25,8 @@ public:
     bool JudgeStar(int R,int C);
     void RenewPicture();
     bool JudgeL(int R,int C);
+    bool JudgeV(int R,int C);
+    bool JudgeH(int R,int C);
 public slots:
     void button_clicked(int R,int C);
 

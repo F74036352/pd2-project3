@@ -39,7 +39,7 @@ int star::condition(Blank* a[10][10],Blank*focus){
                     && (num==a[R+2][C]->number||num==a[R+2][C]->number/10)){
                 return 3;
             }
-            if(R>=2 && R<=7&& (num==a[R][C-2]->number||num==a[R][C-2]->number/10 )
+            if(C>=2 && C<=7&& (num==a[R][C-2]->number||num==a[R][C-2]->number/10 )
                     && (num==a[R][C-1]->number||num==a[R][C-1]->number/10)
                     && (num==a[R][C+1]->number||num==a[R][C+1]->number/10)
                     && (num==a[R][C+2]->number||num==a[R][C+2]->number/10)){

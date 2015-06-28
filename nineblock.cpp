@@ -50,37 +50,38 @@ int NineBlock::condition(Blank *a[10][10], Blank *focus)
                     && (num==a[R][C+1]->number||num==a[R][C+1]->number/10)){
                 return 4;
             }
-         /***********************************/
+         /*
             if(R>=1 && R<=8 && C>=2&& (num==a[R][C-2]->number||num==a[R][C-2]->number/10)
                     && (num==a[R][C-1]->number||num==a[R][C-1]->number/10)
                     && (num==a[R-1][C]->number||num==a[R-1][C]->number/10)
                     && (num==a[R+1][C]->number||num==a[R+1][C]->number/10)){
                 return 5;
             }
-            /***********************************/
-               if(R<=8 && C>=2 && C<=7 &&(num==a[R][C+1]->number||num==a[R][C+1]->number/10)
+
+               if(R<=8 && R>=1 && C<=7 &&(num==a[R][C+1]->number||num==a[R][C+1]->number/10)
                        && (num==a[R][C+2]->number||num==a[R][C+2]->number/10)
                        && (num==a[R+1][C]->number||num==a[R+1][C]->number/10)
                        && (num==a[R-1][C]->number||num==a[R-1][C]->number/10)){
                    return 6;
                }
-               /***********************************/
+
                   if(R>=2 && C>=1 && C<=8 &&(num==a[R][C-1]->number||num==a[R][C-1]->number/10)
                           && (num==a[R][C+1]->number||num==a[R][C+1]->number/10)
                           && (num==a[R-1][C]->number||num==a[R-1][C]->number/10)
                           && (num==a[R-2][C]->number||num==a[R-2][C]->number/10)){
                       return 7;
                   }
-                  /***********************************/
+
                      if(R<=7 && C>=1 && C<=8 &&(num==a[R][C-1]->number||num==a[R][C-1]->number/10)
                              && (num==a[R][C+1]->number||num==a[R][C+1]->number/10)
                              && (num==a[R+1][C]->number||num==a[R+1][C]->number/10)
                              && (num==a[R+2][C]->number||num==a[R+2][C]->number/10)){
                          return 8;
                      }
+                     ********************************/
 
     }
-    else if(num/10!=0){
+   /* else if(num/10!=0){
         num/=10;
         if(R>=2 && C>=2&& (num==a[R-2][C]->number||num==a[R-2][C]->number/10)
                 && (num==a[R-1][C]->number||num==a[R-1][C]->number/10)
@@ -89,7 +90,7 @@ int NineBlock::condition(Blank *a[10][10], Blank *focus)
             return 9;
         }
 
-    /***********************/
+
 
         if(R<=7 && C>=2&& (num==a[R+2][C]->number||num==a[R+2][C]->number/10)
                 && (num==a[R+1][C]->number||num==a[R+1][C]->number/10)
@@ -98,7 +99,7 @@ int NineBlock::condition(Blank *a[10][10], Blank *focus)
             return 10;
         }
 
-    /***********************/
+
 
         if(R>=2 && C<=7&& (num==a[R-2][C]->number||num==a[R-2][C]->number/10)
                 && (num==a[R-1][C]->number||num==a[R-1][C]->number/10)
@@ -107,7 +108,7 @@ int NineBlock::condition(Blank *a[10][10], Blank *focus)
             return 11;
         }
 
-    /***********************/
+
 
         if(R<=7 && C<=7&& (num==a[R+2][C]->number||num==a[R+2][C]->number/10)
                 && (num==a[R+1][C]->number||num==a[R+1][C]->number/10)
@@ -115,28 +116,28 @@ int NineBlock::condition(Blank *a[10][10], Blank *focus)
                 && (num==a[R][C+1]->number||num==a[R][C+1]->number/10)){
             return 12;
         }
-     /***********************************/
+
         if(R>=1 && R<=8 && C>=2&& (num==a[R][C-2]->number||num==a[R][C-2]->number/10)
                 && (num==a[R][C-1]->number||num==a[R][C-1]->number/10)
                 && (num==a[R-1][C]->number||num==a[R-1][C]->number/10)
                 && (num==a[R+1][C]->number||num==a[R+1][C]->number/10)){
             return 13;
         }
-        /***********************************/
-           if(R<=8 && C>=2 && C<=7 &&(num==a[R][C+1]->number||num==a[R][C+1]->number/10)
+
+           if(R<=8 && R>=1 && C<=7 &&(num==a[R][C+1]->number||num==a[R][C+1]->number/10)
                    && (num==a[R][C+2]->number||num==a[R][C+2]->number/10)
                    && (num==a[R+1][C]->number||num==a[R+1][C]->number/10)
                    && (num==a[R-1][C]->number||num==a[R-1][C]->number/10)){
                return 14;
            }
-           /***********************************/
+
               if(R>=2 && C>=1 && C<=8 &&(num==a[R][C-1]->number||num==a[R][C-1]->number/10)
                       && (num==a[R][C+1]->number||num==a[R][C+1]->number/10)
                       && (num==a[R-1][C]->number||num==a[R-1][C]->number/10)
                       && (num==a[R-2][C]->number||num==a[R-2][C]->number/10)){
                   return 15;
               }
-              /***********************************/
+
                  if(R<=7 && C>=1 && C<=8 &&(num==a[R][C-1]->number||num==a[R][C-1]->number/10)
                          && (num==a[R][C+1]->number||num==a[R][C+1]->number/10)
                          && (num==a[R+1][C]->number||num==a[R+1][C]->number/10)
@@ -144,7 +145,8 @@ int NineBlock::condition(Blank *a[10][10], Blank *focus)
                      return 16;
                  }
 
-    }
+    }*/
+    return 0;
 }
 void NineBlock::spawn(Blank *a[10][10], Blank *focus, int mode)
 {
@@ -191,7 +193,7 @@ void NineBlock::spawn(Blank *a[10][10], Blank *focus, int mode)
         }
             for(int i=0;i<2;i++){
                 Destroy *d;
-                switch(FiveN[i]){
+                switch(FiveN[i+3]){
                 case 0:
                     a[R-2+i][C]->number=0;
                     break;
@@ -255,7 +257,7 @@ void NineBlock::spawn(Blank *a[10][10], Blank *focus, int mode)
         }
             for(int i=0;i<2;i++){
                 Destroy *d;
-                switch(FiveN[i]){
+                switch(FiveN[i+3]){
                 case 0:
                     a[R+2-i][C]->number=0;
                     break;
@@ -317,7 +319,7 @@ void NineBlock::spawn(Blank *a[10][10], Blank *focus, int mode)
         }
             for(int i=0;i<2;i++){
                 Destroy *d;
-                switch(FiveN[i]){
+                switch(FiveN[i+3]){
                 case 0:
                     a[R-2+i][C]->number=0;
                     break;
@@ -379,7 +381,7 @@ void NineBlock::spawn(Blank *a[10][10], Blank *focus, int mode)
         }
             for(int i=0;i<2;i++){
                 Destroy *d;
-                switch(FiveN[i]){
+                switch(FiveN[i+3]){
                 case 0:
                     a[R+2-i][C]->number=0;
                     break;
@@ -402,6 +404,7 @@ void NineBlock::spawn(Blank *a[10][10], Blank *focus, int mode)
             }
         break;
         /*******************************************************/
+
 
     }//switch
 

@@ -147,6 +147,10 @@ bool MainWindow::Judge(int row1, int col1, int row2, int col2)
     JudgeStar(row2,col2);
     JudgeL(row1,col1);
     JudgeL(row2,col2);
+    JudgeV(row1,col1);
+    JudgeV(row2,col2);
+    JudgeH(row1,col1);
+    JudgeH(row2,col2);
     RenewPicture();
 }
 
@@ -211,7 +215,7 @@ bool MainWindow::JudgeL(int R, int C)
             destroy->spawn(b,b[R][C],4);
             AnySpawn=true;
             break;
-        case 5:
+       /* case 5:
             destroy->spawn(b,b[R][C],5);
             AnySpawn=true;
             break;
@@ -228,35 +232,59 @@ bool MainWindow::JudgeL(int R, int C)
             AnySpawn=true;
             break;
         case 9:
-            destroy->spawn(b,b[R][C],1);
+            destroy->spawn(b,b[R][C],9);
             AnySpawn=true;
             break;
         case 10:
-            destroy->spawn(b,b[R][C],2);
+            destroy->spawn(b,b[R][C],10);
             AnySpawn=true;
             break;
         case 11:
-            destroy->spawn(b,b[R][C],3);
+            destroy->spawn(b,b[R][C],11);
             AnySpawn=true;
             break;
         case 12:
-            destroy->spawn(b,b[R][C],4);
+            destroy->spawn(b,b[R][C],12);
             AnySpawn=true;
             break;
         case 13:
-            destroy->spawn(b,b[R][C],5);
+            destroy->spawn(b,b[R][C],13);
             AnySpawn=true;
             break;
         case 14:
-            destroy->spawn(b,b[R][C],6);
+            destroy->spawn(b,b[R][C],14);
             AnySpawn=true;
             break;
         case 15:
-            destroy->spawn(b,b[R][C],7);
+            destroy->spawn(b,b[R][C],15);
             AnySpawn=true;
             break;
         case 16:
-            destroy->spawn(b,b[R][C],8);
+            destroy->spawn(b,b[R][C],16);
+            AnySpawn=true;
+            break;
+            */
+        }
+    }
+    delete destroy;
+    return AnySpawn;
+
+}
+
+bool MainWindow::JudgeV(int R, int C)
+{
+    int returnV;
+    bool AnySpawn=false;
+    destroy=new Vertical;
+    returnV=destroy->condition(b,b[R][C]);
+    if(returnV){
+        switch(returnV){
+        case 1:
+            destroy->spawn(b,b[R][C],1);
+            AnySpawn=true;
+            break;
+        case 2:
+            destroy->spawn(b,b[R][C],2);
             AnySpawn=true;
             break;
         }
@@ -264,4 +292,26 @@ bool MainWindow::JudgeL(int R, int C)
     delete destroy;
     return AnySpawn;
 
+}
+
+bool MainWindow::JudgeH(int R, int C)
+{
+    int returnV;
+    bool AnySpawn=false;
+    destroy=new Horizontal;
+    returnV=destroy->condition(b,b[R][C]);
+    if(returnV){
+        switch(returnV){
+        case 1:
+            destroy->spawn(b,b[R][C],1);
+            AnySpawn=true;
+            break;
+        case 2:
+            destroy->spawn(b,b[R][C],2);
+            AnySpawn=true;
+            break;
+        }
+    }
+    delete destroy;
+    return AnySpawn;
 }
