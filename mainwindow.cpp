@@ -82,6 +82,7 @@ void MainWindow::setClickedPicture(Blank *a){
         switch (a->number) {
         case 1:
             a->button->setIcon(QIcon(QPixmap(":/picture/Blue_o.png")));
+
             break;
         case 11:
             a->button->setIcon(QIcon(QPixmap(":/picture/Blue_v.png")));
@@ -155,9 +156,9 @@ bool MainWindow::Judge(int row1, int col1, int row2, int col2)
     JudgeH3(row2,col2);
     JudgeV3(row1,col1);
     JudgeV3(row2,col2);
-    fillzero();
     RenewPicture();
     fillzero();
+    bornzero();
     RenewPicture();
 }
 
@@ -377,24 +378,24 @@ bool MainWindow::JudgeV3(int R, int C)
 
 void MainWindow::bornzero()
 {
-    for(int i=0;i<10;i++){
-        for(int j=0;j<10;j++){
+    bool aaa=true;
+    do{
+    for(int i=9;i>=0;i--){
+        for(int j=9;j>=0;j--){
             if(b[i][j]->number==0){
                 b[i][j]->setRandomNumber();
                 b[i][j]->setButtonPicture();
-                if(j>=2 && b[i][j]->number==b[i][j-1]->number && b[i][j]->number==b[i][j-2]->number){
-                 j--;
-                }
-                if(j>=2 && b[i][j]->number==b[i-1][j]->number && b[i][j]->number==b[i-2][j]->number){
-                 j--;
-                }
+
             }
         }
     }
+    aaa=fallcheck();
+    }while(aaa==true);
 }
 
 void MainWindow::fillzero()
 {
+do{
     for(int i=9;i>=0;i--){
         for(int j=9;j>=0;j--){
             if(b[i][j]->number==0){
@@ -408,4 +409,50 @@ void MainWindow::fillzero()
             }
         }
     }
+
+    //RenewPicture();
+    }while(fallcheck()==true);
+}
+
+bool MainWindow::fallcheck()
+{
+    bool result=false;
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++){
+            if(JudgeStar(i,j))
+                result=true;
+        }
+    }
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++){
+            if(JudgeL(i,j))
+                result=true;
+        }
+    }
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++){
+            if(JudgeV(i,j))
+                result=true;
+        }
+    }
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++){
+            if(JudgeH(i,j))
+                result=true;
+        }
+    }
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++){
+            if(JudgeH3(i,j))
+                result=true;
+        }
+    }
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++){
+            if(JudgeV3(i,j))
+                result=true;
+        }
+    }
+    RenewPicture();
+    return result;
 }

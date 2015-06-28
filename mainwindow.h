@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTimer>
 #include"blank.h"
 #include "destroy.h"
 #include "star.h"
@@ -34,6 +35,7 @@ public:
     bool JudgeV3(int R,int C);
     void bornzero();
     void fillzero();
+    bool fallcheck();
 public slots:
     void button_clicked(int R,int C);
 
