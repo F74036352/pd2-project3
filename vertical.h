@@ -3,7 +3,9 @@
 #include "destroy.h"
 #include "horizontal.h"
 #include "nineblock.h"
-
+#include "star.h"
+#include "ver3.h"
+#include "hor3.h"
 class Vertical:public Destroy
 {
 public:

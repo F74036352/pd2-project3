@@ -19,7 +19,9 @@ SOURCES += main.cpp\
     star.cpp \
     nineblock.cpp \
     vertical.cpp \
-    horizontal.cpp
+    horizontal.cpp \
+    hor3.cpp \
+    ver3.cpp
 
 HEADERS  += mainwindow.h \
     blank.h \
@@ -27,7 +29,9 @@ HEADERS  += mainwindow.h \
     star.h \
     nineblock.h \
     vertical.h \
-    horizontal.h
+    horizontal.h \
+    hor3.h \
+    ver3.h
 
 FORMS    += mainwindow.ui
 

@@ -1,20 +1,19 @@
-#ifndef STAR_H
-#define STAR_H
+#ifndef VER3_H
+#define VER3_H
 #include "destroy.h"
-#include "horizontal.h"
 #include "vertical.h"
 #include "nineblock.h"
-#include "ver3.h"
+#include "star.h"
 #include "hor3.h"
 
-class star:public Destroy
+class ver3:public Destroy
 {
 public:
-    star();
-    virtual~star();
+    ver3();
+    virtual~ver3();
     virtual int condition(Blank* a[10][10],Blank*focus);
     virtual void spawn(Blank* a[10][10],Blank*focus,int mode);
     virtual void eliminate(Blank*a[10][10],Blank* focus);
 };
 
-#endif // STAR_H
+#endif // VER3_H

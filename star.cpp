@@ -1,7 +1,5 @@
 #include "star.h"
-#include "horizontal.h"
-#include "vertical.h"
-#include "nineblock.h"
+
 star::star()
 {
 

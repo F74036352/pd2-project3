@@ -27,6 +27,7 @@ public:
     bool JudgeL(int R,int C);
     bool JudgeV(int R,int C);
     bool JudgeH(int R,int C);
+    bool JudgeH3(int R,int C);
 public slots:
     void button_clicked(int R,int C);
 
