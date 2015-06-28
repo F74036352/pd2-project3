@@ -3,7 +3,7 @@
 //#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),score(0),step(20),
+    QMainWindow(parent),score(0),step(20),stars(0),
     ui(new Ui::MainWindow)
 {   //srand((unsigned)time(NULL));
     ui->setupUi(this);
@@ -21,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    emit quit(score,stars);
     delete ui;
 }
 void MainWindow::button_clicked(int R, int C){
@@ -35,6 +36,10 @@ void MainWindow::button_clicked(int R, int C){
         if(record_R==R && record_C==C-1){//左右交換
             *b[record_R][record_C] + b[R][C];
             step-=1;
+            if(step==0){
+                emit quit(score,stars);
+                this->close();
+            }
             if(!Judge(record_R,record_C,R,C)){
                 *b[record_R][record_C] + b[R][C];
                 step+=1;
@@ -43,6 +48,10 @@ void MainWindow::button_clicked(int R, int C){
         else if(record_R==R && record_C==C+1){
             *b[R][C] + b[record_R][record_C];
             step-=1;
+            if(step==0){
+                emit quit(score,stars);
+                this->close();
+            }
             if(!Judge(record_R,record_C,R,C)){
                 *b[R][C] + b[record_R][record_C];
                 step+=1;
@@ -51,6 +60,10 @@ void MainWindow::button_clicked(int R, int C){
         else if(record_C==C && record_R==R-1){
             *b[record_R][record_C] + b[R][C];
             step-=1;
+            if(step==0){
+                emit quit(score,stars);
+                this->close();
+            }
             if(!Judge(record_R,record_C,R,C)){
                    *b[record_R][record_C] + b[R][C];
                 step+=1;
@@ -59,6 +72,10 @@ void MainWindow::button_clicked(int R, int C){
         else if(record_C==C && record_R==R+1){
             *b[R][C] + b[record_R][record_C];
             step-=1;
+            if(step==0){
+                emit quit(score,stars);
+                this->close();
+            }
             if(!Judge(record_R,record_C,R,C)){
                 *b[record_R][record_C] + b[R][C];
                 step+=1;
@@ -216,6 +233,18 @@ void MainWindow::RenewPicture(){
     }
     ui->now->display(score);
     ui->run->display(step);
+    if(step==0 && score<=500){
+        stars=0;
+    }
+    if(step==0 && score<=1000 && score>=1000){
+        stars=1;
+    }
+    if(step==0 && score>=1000 && score<=1500){
+        stars=2;
+    }
+    if(step==0 && score>=1500){
+        stars=3;
+    }
 }
 
 bool MainWindow::JudgeL(int R, int C)

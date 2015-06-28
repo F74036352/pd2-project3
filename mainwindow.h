@@ -9,7 +9,6 @@
 #include "vertical.h"
 #include "horizontal.h"
 #include "nineblock.h"
-#include <QMainWindow>
 #include <cstdlib>
 #include <ctime>
 namespace Ui {
@@ -38,6 +37,8 @@ public:
     bool fallcheck();
 public slots:
     void button_clicked(int R,int C);
+signals:
+    void quit(int star,int score);
 
 
 private:
@@ -49,6 +50,7 @@ private:
     Destroy* destroy;
     int score;
     int step;
+    int stars;
 };
 
 #endif // MAINWINDOW_H
