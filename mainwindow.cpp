@@ -3,12 +3,12 @@
 //#include <QDebug>
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
+    QMainWindow(parent),score(0),step(20),
     ui(new Ui::MainWindow)
 {   //srand((unsigned)time(NULL));
     ui->setupUi(this);
-    this->setMaximumSize(500,520);
-    this->setMinimumSize(500,520);
+    this->setMaximumSize(800,520);
+    this->setMinimumSize(800,520);
     for(int i=0;i<10;i++){
         for(int j=0;j<10;j++){
             b[i][j]=new Blank(this,i,j);//將row column的值回傳
@@ -34,26 +34,34 @@ void MainWindow::button_clicked(int R, int C){
     else{
         if(record_R==R && record_C==C-1){//左右交換
             *b[record_R][record_C] + b[R][C];
+            step-=1;
             if(!Judge(record_R,record_C,R,C)){
-
+                *b[record_R][record_C] + b[R][C];
+                step+=1;
             }
         }
         else if(record_R==R && record_C==C+1){
             *b[R][C] + b[record_R][record_C];
+            step-=1;
             if(!Judge(record_R,record_C,R,C)){
-
+                *b[R][C] + b[record_R][record_C];
+                step+=1;
             }
         }
         else if(record_C==C && record_R==R-1){
             *b[record_R][record_C] + b[R][C];
+            step-=1;
             if(!Judge(record_R,record_C,R,C)){
-
+                   *b[record_R][record_C] + b[R][C];
+                step+=1;
             }
         }
         else if(record_C==C && record_R==R+1){
             *b[R][C] + b[record_R][record_C];
+            step-=1;
             if(!Judge(record_R,record_C,R,C)){
-
+                *b[record_R][record_C] + b[R][C];
+                step+=1;
             }
         }
         else{
@@ -76,6 +84,7 @@ void MainWindow::GameStart(){
             }//if
         }//for2
     }//for1
+    ui->run->display(step);
 }
 void MainWindow::setClickedPicture(Blank *a){
     if(!isClicked){
@@ -144,22 +153,30 @@ void MainWindow::setClickedPicture(Blank *a){
 
 bool MainWindow::Judge(int row1, int col1, int row2, int col2)
 {
-    JudgeStar(row1,col1);
-    JudgeStar(row2,col2);
-    JudgeL(row1,col1);
-    JudgeL(row2,col2);
-    JudgeV(row1,col1);
-    JudgeV(row2,col2);
-    JudgeH(row1,col1);
-    JudgeH(row2,col2);
-    JudgeH3(row1,col1);
-    JudgeH3(row2,col2);
-    JudgeV3(row1,col1);
-    JudgeV3(row2,col2);
+    bool RF[12];
+    RF[0]=JudgeStar(row1,col1);
+    RF[1]=JudgeStar(row2,col2);
+    RF[2]=JudgeL(row1,col1);
+    RF[3]=JudgeL(row2,col2);
+    RF[4]=JudgeV(row1,col1);
+    RF[5]=JudgeV(row2,col2);
+    RF[6]=JudgeH(row1,col1);
+    RF[7]=JudgeH(row2,col2);
+    RF[8]=JudgeH3(row1,col1);
+    RF[9]=JudgeH3(row2,col2);
+    RF[10]=JudgeV3(row1,col1);
+    RF[11]=JudgeV3(row2,col2);
     RenewPicture();
     fillzero();
     bornzero();
     RenewPicture();
+    for(int i=0;i<12;i++){
+    if(RF[i]==true){
+        return true;
+
+    }
+    }
+    return false;
 }
 
 bool MainWindow::JudgeStar(int R, int C)
@@ -197,6 +214,8 @@ void MainWindow::RenewPicture(){
             b[i][j]->setButtonPicture();
         }
     }
+    ui->now->display(score);
+    ui->run->display(step);
 }
 
 bool MainWindow::JudgeL(int R, int C)
@@ -210,18 +229,22 @@ bool MainWindow::JudgeL(int R, int C)
         case 1:
             destroy->spawn(b,b[R][C],1);
             AnySpawn=true;
+            score+=100;
             break;
         case 2:
             destroy->spawn(b,b[R][C],2);
             AnySpawn=true;
+            score+=100;
             break;
         case 3:
             destroy->spawn(b,b[R][C],3);
             AnySpawn=true;
+            score+=100;
             break;
         case 4:
             destroy->spawn(b,b[R][C],4);
             AnySpawn=true;
+            score+=100;
             break;
        /* case 5:
             destroy->spawn(b,b[R][C],5);
@@ -290,10 +313,12 @@ bool MainWindow::JudgeV(int R, int C)
         case 1:
             destroy->spawn(b,b[R][C],1);
             AnySpawn=true;
+            score+=50;
             break;
         case 2:
             destroy->spawn(b,b[R][C],2);
             AnySpawn=true;
+            score+=50;
             break;
         }
     }
@@ -313,10 +338,12 @@ bool MainWindow::JudgeH(int R, int C)
         case 1:
             destroy->spawn(b,b[R][C],1);
             AnySpawn=true;
+            score+=50;
             break;
         case 2:
             destroy->spawn(b,b[R][C],2);
             AnySpawn=true;
+            score+=50;
             break;
         }
     }
@@ -335,14 +362,17 @@ bool MainWindow::JudgeH3(int R, int C)
         case 1:
             destroy->spawn(b,b[R][C],1);
             AnySpawn=true;
+            score+=10;
             break;
         case 2:
             destroy->spawn(b,b[R][C],2);
             AnySpawn=true;
+            score+=10;
             break;
         case 3:
             destroy->spawn(b,b[R][C],3);
             AnySpawn=true;
+            score+=10;
             break;
         }
     }
@@ -361,14 +391,17 @@ bool MainWindow::JudgeV3(int R, int C)
         case 1:
             destroy->spawn(b,b[R][C],1);
             AnySpawn=true;
+            score+=10;
             break;
         case 2:
             destroy->spawn(b,b[R][C],2);
             AnySpawn=true;
+            score+=10;
             break;
         case 3:
             destroy->spawn(b,b[R][C],3);
             AnySpawn=true;
+            score+=10;
             break;
         }
     }
@@ -456,3 +489,5 @@ bool MainWindow::fallcheck()
     RenewPicture();
     return result;
 }
+
+

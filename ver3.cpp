@@ -27,7 +27,7 @@ int ver3::condition(Blank *a[10][10], Blank *focus)
         }
         if(R>=2 && R<=9 &&(num==a[R-1][C]->number||num==a[R-1][C]->number/10)
                         &&(num==a[R-2][C]->number||num==a[R-2][C]->number/10)){
-            return 2;
+            return 3;
         }
     }
     }

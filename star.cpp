@@ -232,5 +232,27 @@ void star::spawn(Blank *a[10][10], Blank *focus, int mode)
 
 void star::eliminate(Blank *a[10][10], Blank *focus)
 {
+    int C=focus->column;
+    int R=focus->row;
+    focus->number=0;
+    int T=a[R][C]->number/10;
+    int TenN[10][10]={0};
+
+    //Destroy* d;
+    for(int i=0;i<10;i++){
+        for(int j=0;j<10;j++){
+            TenN[i][j]=a[i][j]->number/10;
+
+        }
+
+    }
+    for(int i=0;i<10;i++){
+        for(int j;j<10;j++){
+        if(TenN[i][j]==T)
+        {
+            a[i][j]->number=0;
+        }
+        }
+    }
 
 }

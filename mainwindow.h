@@ -39,6 +39,7 @@ public:
 public slots:
     void button_clicked(int R,int C);
 
+
 private:
     Ui::MainWindow *ui;
     Blank* b[10][10];
@@ -46,6 +47,8 @@ private:
     int record_C;
     bool isClicked;
     Destroy* destroy;
+    int score;
+    int step;
 };
 
 #endif // MAINWINDOW_H
